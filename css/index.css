@@ -1,0 +1,21 @@
+#zhuanpan{
+	width: 450px;
+	height: 250px;
+	margin: 100px auto 0px;
+	border: 3px solid black;
+}
+#zhuanpan li{
+	width: 104px;
+	height: 54px;
+	border: 3px solid black;
+	float: left;
+	margin: 8px 0 0 8px;
+	list-style: none;
+}
+.btn{
+	border: 3px solid red !important;
+	cursor: pointer;
+}
+.cur{
+	border: 3px solid red !important;
+}
