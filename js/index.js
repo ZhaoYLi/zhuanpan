@@ -12,7 +12,9 @@ var step = [
 ];
 
 //设置样式和重新设置定时器
-function run(){
+function run(m){
+	msg = m[0];  //设置在转盘结束时弹窗显示的文字
+        data = m[1]; //设置需要停在的图片序号
 	//删除之前设置是cur类
 	$('#'+step[current-1][0]).removeClass('cur');
 	//为当前元素设置cur类
@@ -25,7 +27,9 @@ function run(){
 		window.location.reload();
 	}else{
 		//重置定时器
-		setTimeout('run()',step[current][1]);
+		setTimeout(function(){
+			run(m)
+		},step[current][1]);
 		current++;
 	}
 }
@@ -38,11 +42,8 @@ function start(){
 		url:"../index.php",
 		type:"GET",
 		dataType:"json",
-		success:function(m){
-			msg = m[0];  //设置在转盘结束时弹窗显示的文字
-	        data = m[1]; //设置需要停在的图片序号
-	        run();
-		}
+		success:run
+
 	});
 }
 
